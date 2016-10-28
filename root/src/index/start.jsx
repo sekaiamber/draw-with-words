@@ -1,5 +1,8 @@
-import {render} from 'react-dom';
-const Index = require('./index');
 const React = require('react');
+import {render} from 'react-dom';
+import Index from './index'
+import createStore from './../utils/store'
 
-render(<Index />, document.getElementById("main"));
+const store = createStore();
+
+render(<Index store={store} />, document.getElementById("main"));
