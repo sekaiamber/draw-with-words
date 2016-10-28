@@ -1,23 +1,31 @@
 const React = require('react');
-require('./index.scss');
+import { Provider, connect } from 'react-redux'
+import Console from './console'
 
-const logo = document.createElement('img');
-logo.src = require('./../../assets/images/logo.svg');
-
-var Index = React.createClass({
-  getInitialState() {
-    return {
-      theme: 'light',
-    };
-  },
-  render: function () {
+class Index extends React.Component {
+  render() {
     return (
       <div>
-        <h1>React Start Kit</h1>
-        <div><img src={logo.src} /></div>
+        <Console {...this.props.brush} dispatch={this.props.dispatch}/>
       </div>
     )
   }
-});
+}
 
-module.exports = Index;
+const mapStateToProps = (state/*, props*/) => {
+  return {
+    brush: state.brush
+  }
+}
+
+const ConnectedIndex = connect(mapStateToProps)(Index)
+
+export default class StoreIndex extends React.Component {
+  render () {
+    return (
+      <Provider store={ this.props.store }>
+        <ConnectedIndex />
+      </Provider>
+    )
+  }
+}
