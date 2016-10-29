@@ -1,0 +1,9 @@
+html, body, #main, #workspace {
+  height: 100%;
+  width: 100%;
+}
+
+#workspace {
+  position: relative;
+  overflow: hidden;
+}

@@ -49,6 +49,7 @@
     "lodash": "^4.16.4",
     "path": "^0.12.7",
     "react": "^15.0.0",
+    "react-color": "^2.4.0",
     "react-dom": "^15.0.0",
     "react-redux": "^4.4.5",
     "redux": "^3.6.0",

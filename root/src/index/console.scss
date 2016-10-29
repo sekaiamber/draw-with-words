@@ -1,0 +1,76 @@
+$itemHeight: 25px;
+
+$consoleWidth: 250px;
+$block1Width: 90px;
+$block3Width: 50px;
+$borderWidth: 1px;
+
+.console {
+  position: absolute;
+  left: 100px;
+  width: $consoleWidth;
+  border: solid $borderWidth #000;
+  .console-item {
+    height: $itemHeight;
+    line-height: $itemHeight;
+    &>div {
+      float: left;
+      height: $itemHeight;
+    }
+    .text {
+      width: $block1Width;
+    }
+
+    &.text {
+      .text-value {
+        width: $consoleWidth - $block1Width - 2 * $borderWidth;
+        input {
+          outline: none;
+          border: none;
+          height: $itemHeight;
+          width: 100%;
+        }
+      }
+    }
+
+    &.range {
+      .range-value {
+        width: $consoleWidth - $block1Width - $block3Width - 2 * $borderWidth;
+        background: #eee;
+        cursor: ew-resize;
+        .pointer {
+          height: $itemHeight;
+          background: #ccc;
+        }
+        &:hover {
+          background: #ddd;
+        }
+      }
+      .text-value {
+        width: $block3Width;
+        input {
+          outline: none;
+          border: none;
+          height: $itemHeight;
+          width: 100%;
+        }
+      }
+    }
+
+    &.color {
+      .text-value {
+        width: $consoleWidth - $block1Width - 2 * $borderWidth;
+      }
+      .chrome-picker {
+        display: none;
+        position: absolute;
+      }
+
+      &:hover {
+        .chrome-picker {
+          display: block;
+        }
+      }
+    }
+  }
+}
