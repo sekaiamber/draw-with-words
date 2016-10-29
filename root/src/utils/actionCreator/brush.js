@@ -1,8 +1,29 @@
 var setTextActionCreator = function (text) {
-    return {
-      type: 'BRUSH_SET_TEXT',
-      text: text
-    }
+  return {
+    type: 'BRUSH_SET_TEXT',
+    text: text
+  }
+}
+
+var setMinSizeActionCreator = function (size) {
+  return {
+    type: 'BRUSH_SET_MINSIZE',
+    minSize: size
+  }
+}
+
+var setMaxSizeActionCreator = function (size) {
+  return {
+    type: 'BRUSH_SET_MAXSIZE',
+    maxSize: size
+  }
+}
+
+var setColorActionCreator = function (color) {
+  return {
+    type: 'BRUSH_SET_COLOR',
+    color: color
+  }
 }
 
 var setTextActionCreatorAsync = function (text) {
@@ -18,5 +39,8 @@ var setTextActionCreatorAsync = function (text) {
 
 export default {
   setTextActionCreator,
-  setTextActionCreatorAsync
+  setTextActionCreatorAsync,
+  setMinSizeActionCreator,
+  setMaxSizeActionCreator,
+  setColorActionCreator
 }

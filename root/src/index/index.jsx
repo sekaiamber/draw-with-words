@@ -2,10 +2,12 @@ const React = require('react');
 import { Provider, connect } from 'react-redux'
 import Console from './console'
 
+require('./index.scss')
+
 class Index extends React.Component {
   render() {
     return (
-      <div>
+      <div id="workspace">
         <Console {...this.props.brush} dispatch={this.props.dispatch}/>
       </div>
     )
