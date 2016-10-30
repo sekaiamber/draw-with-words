@@ -78,7 +78,9 @@ var config = {
   externals: {
     react: "React",
     'react-dom': "ReactDOM",
-    lodash: "_"
+    lodash: "_",
+    redux: "Redux",
+    'react-redux': "ReactRedux"
   },
 };
 
