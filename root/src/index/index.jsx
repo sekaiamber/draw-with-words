@@ -9,8 +9,11 @@ class Index extends React.Component {
   render() {
     return (
       <div id="workspace">
-        <Console {...this.props.brush} dispatch={this.props.dispatch}/>
-        <Canvas brush={this.props.brush} dispatch={this.props.dispatch}/>
+        <Console {...this.props.brush} dispatch={this.props.dispatch}
+          onClearClick={() => this.canvas.clear()}
+          onSaveClick={() => this.canvas.save()}
+        />
+        <Canvas brush={this.props.brush} dispatch={this.props.dispatch} ref={(c) => this.canvas = c}/>
       </div>
     )
   }

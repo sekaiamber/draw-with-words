@@ -66,7 +66,7 @@ export default class Canvas extends React.Component {
       // 绘制
       this.canvasContext.font = fontSize + "px Georgia";
       this.canvasContext.save();
-      this.canvasContext.translate( this.position.x, this.position.y);
+      this.canvasContext.translate(this.position.x, this.position.y);
       this.canvasContext.rotate(angle);
       this.canvasContext.fillText(letter, 0, 0);
       this.canvasContext.restore();
@@ -97,6 +97,35 @@ export default class Canvas extends React.Component {
     // 开始更新
     this.update();
   }
+
+  // export api
+  clear() {
+    this.canvas.width = this.canvas.width;
+  }
+  save() {
+    let saveCanvas = document.createElement('canvas');
+    saveCanvas.width = this.canvas.width;
+    saveCanvas.height = this.canvas.height;
+    let saveContext = saveCanvas.getContext('2d');
+
+    // TODO:: use for resize when using hidpi screen
+
+    // var pixelRatio = (function(context) {
+    //   var backingStore = context.backingStorePixelRatio ||
+    //         context.webkitBackingStorePixelRatio ||
+    //         context.mozBackingStorePixelRatio ||
+    //         context.msBackingStorePixelRatio ||
+    //         context.oBackingStorePixelRatio ||
+    //         context.backingStorePixelRatio || 1;
+
+    //   return (window.devicePixelRatio || 1) / backingStore;
+    // })(CanvasRenderingContext2D.prototype);
+
+    saveContext.drawImage(this.canvas, 0, 0);
+    
+    window.open(saveCanvas.toDataURL('image/png'), '_blank');
+  }
+
 
   render() {
     return (
