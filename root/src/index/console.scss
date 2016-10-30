@@ -3,13 +3,15 @@ $itemHeight: 25px;
 $consoleWidth: 250px;
 $block1Width: 90px;
 $block3Width: 50px;
-$borderWidth: 1px;
+$borderWidth: 3px;
 
 .console {
   position: absolute;
   z-index: 100;
   background: #fff;
-  right: 0;
+  top: 5px;
+  right: 10px;
+  box-shadow: 9px 9px black;
   width: $consoleWidth;
   border: solid $borderWidth #000;
   .console-item {
@@ -20,6 +22,7 @@ $borderWidth: 1px;
       height: $itemHeight;
     }
     .text {
+      padding-left: 5px;
       width: $block1Width;
     }
 
@@ -42,7 +45,7 @@ $borderWidth: 1px;
         cursor: ew-resize;
         .pointer {
           height: $itemHeight;
-          background: #ccc;
+          background: #000;
         }
         &:hover {
           background: #ddd;
@@ -62,6 +65,7 @@ $borderWidth: 1px;
     &.color {
       .text-value {
         width: $consoleWidth - $block1Width - 2 * $borderWidth;
+        position: relative;
       }
       .chrome-picker {
         display: none;
@@ -75,6 +79,32 @@ $borderWidth: 1px;
           display: block;
         }
       }
+    }
+
+    &.button {
+      cursor: pointer;
+      background: #000;
+      .text {
+        padding: 0;
+        width: 100%;
+        text-align: center;
+        background: #fff;
+        box-sizing: content-box;
+      }
+      &:hover .text{
+        outline: solid $borderWidth #000;
+        transform: translate(-9px, -9px);
+      }
+    }
+  }
+
+  &.console-hidden {
+    .console-opt {
+      display: none;
+    }
+    .console-item.button:hover .text{
+      outline: none;
+      transform: translate(0, 0);
     }
   }
 }

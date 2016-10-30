@@ -4,7 +4,8 @@ const defaultBrush = {
   textIndex: 0,
   minSize: 8,
   maxSize: 300,
-  color: '#000000'
+  color: '#000000',
+  consoleHidden: false
 }
 
 var brushReducer = function (state = defaultBrush, action) {
@@ -35,6 +36,11 @@ var brushReducer = function (state = defaultBrush, action) {
       return {
         ...state,
         textIndex: state.text.length - 1 == state.textIndex ? 0 : state.textIndex + 1
+      }
+    case 'BRUSH_TRIGGER_CONSOLE':
+      return {
+        ...state,
+        consoleHidden: !state.consoleHidden
       }
     default:
       return state;
