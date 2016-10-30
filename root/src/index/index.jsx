@@ -1,6 +1,7 @@
 const React = require('react');
 import { Provider, connect } from 'react-redux'
 import Console from './console'
+import Canvas from './canvas'
 
 require('./index.scss')
 
@@ -9,6 +10,7 @@ class Index extends React.Component {
     return (
       <div id="workspace">
         <Console {...this.props.brush} dispatch={this.props.dispatch}/>
+        <Canvas brush={this.props.brush} dispatch={this.props.dispatch}/>
       </div>
     )
   }

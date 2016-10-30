@@ -7,3 +7,10 @@ html, body, #main, #workspace {
   position: relative;
   overflow: hidden;
 }
+
+#canvas {
+  position: absolute;
+  cursor: crosshair;
+  -webkit-user-select: none;
+  z-index: 1;
+}
