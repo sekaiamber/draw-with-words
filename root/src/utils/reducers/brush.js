@@ -1,6 +1,7 @@
 // brush
 const defaultBrush = {
   text: 'Draw with words',
+  textIndex: 0,
   minSize: 8,
   maxSize: 300,
   color: '#000000'
@@ -12,7 +13,8 @@ var brushReducer = function (state = defaultBrush, action) {
     case 'BRUSH_SET_TEXT':
       return {
         ...state,
-        text: action.text
+        text: action.text,
+        textIndex: 0
       }
     case 'BRUSH_SET_MINSIZE':
       return {
@@ -28,6 +30,11 @@ var brushReducer = function (state = defaultBrush, action) {
       return {
         ...state,
         color: action.color
+      }
+    case 'BRUSH_ADD_TEXTINDEX':
+      return {
+        ...state,
+        textIndex: state.text.length - 1 == state.textIndex ? 0 : state.textIndex + 1
       }
     default:
       return state;
