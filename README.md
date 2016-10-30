@@ -1,5 +1,13 @@
-# React Start Kit
-This is a project of REACT base start kit.
+# Draw With Words
+DWW (draw-with-words) is an little experiment let you draw something with words. It is inspired of some logos and JS's UX library in my memory.
+
+DWW是一个小JS玩具，可以用给定的短句来画画。这玩意儿灵感来源于曾经看到过的一些logo和之前看到过的JS交互实验。
+
+![1](https://github.com/sekaiamber/draw-with-words/blob/master/dww.jpg)
+
+也可以这么玩。。。
+
+![2](https://github.com/sekaiamber/draw-with-words/blob/master/dww2.jpg)
 
 ## Develop
 
