@@ -108,3 +108,38 @@ $borderWidth: 3px;
     }
   }
 }
+
+@media (max-width: 600px) {
+  .console {
+    box-shadow: none;
+    border: solid 0 #000;
+    border-bottom: solid $borderWidth #000;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    .console-item {
+      .text {
+        width: 25%;
+      }
+      &.text {
+        .text-value {
+          width: 75%;
+        }
+      }
+      &.range {
+        .range-value {
+          width: 50%;
+        }
+        .text-value {
+          width: 25%;
+        }
+      }
+      &.color {
+        .text-value {
+          width: 75%;
+        }
+      }
+    }
+  }
+}

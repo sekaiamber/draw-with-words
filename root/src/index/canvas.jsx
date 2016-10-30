@@ -91,11 +91,28 @@ export default class Canvas extends React.Component {
     // 确认第一个字的起始点
     this.position.x = e.pageX;
     this.position.y = e.pageY;
+    this.handleMouseMove(e);
     // 设置一些参数
     this.canvasContext.fillStyle = this.props.brush.color;
 
     // 开始更新
     this.update();
+  }
+  handleMouseUp(e) {
+    this.mouse.down = false;
+  }
+
+  // touch
+  handleTouchMove(e) {
+    e = e.changedTouches[0];
+    this.handleMouseMove(e);
+  }
+  handleTouchStart(e) {
+    e = e.changedTouches[0];
+    this.handleMouseDown(e);
+  }
+  handleTouchEnd(e) {
+    this.handleMouseUp(e)
   }
 
   // export api
@@ -131,9 +148,13 @@ export default class Canvas extends React.Component {
     return (
       <canvas id="canvas" ref={(c) => this.canvas = c}
         onMouseMove={this.handleMouseMove.bind(this)}
+        onTouchMove={this.handleTouchMove.bind(this)}
         onMouseDown={this.handleMouseDown.bind(this)}
-        onMouseUp={() => this.mouse.down = false}
-        onMouseLeave={() => this.mouse.down = false}
+        onTouchStart={this.handleTouchStart.bind(this)}
+        onMouseUp={this.handleMouseUp.bind(this)}
+        onTouchEnd={this.handleTouchEnd.bind(this)}
+        onMouseLeave={this.handleMouseUp.bind(this)}
+        onTouchCancel={this.handleTouchEnd.bind(this)}
       ></canvas>
     )
   }
