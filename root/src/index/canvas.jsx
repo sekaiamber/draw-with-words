@@ -31,16 +31,6 @@ export default class Canvas extends React.Component {
       x: 0,
       y: 0
     }
-
-    // init
-    this.canvasContext.font = "30px Georgia";
-    this.canvasContext.fillText('直接使用鼠标或者手指滑动', 20, 40);
-    this.canvasContext.font = "20px Georgia";
-    this.canvasContext.fillText('控制面板里有清屏和保存', 20, 90);
-    this.canvasContext.font = "15px Georgia";
-    this.canvasContext.fillText('项目地址：', 20, 160);
-    this.canvasContext.fillText('github.com/sekaiamber/draw-with-words', 20, 190);
-    this.canvasContext.fillText('给个Star呗   (<ゝω·)☆~', 20, 220);
   }
 
   setCanvasSize() {
